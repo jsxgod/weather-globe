@@ -1,3 +1,6 @@
+# Weather application developed with React to check current weather of some Country/City
+Data fetched from OpenWeatherMap API
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
