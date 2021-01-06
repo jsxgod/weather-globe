@@ -1,4 +1,4 @@
-# Weather application developed with React to check current weather of some Country/City
+# React Weather web application
 Data fetched from OpenWeatherMap API
 
 # Getting Started with Create React App
