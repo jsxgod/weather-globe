@@ -28,12 +28,14 @@ function App() {
   };
 
   const determineWeatherCSS = (temperature) => {
-    if (temperature > 18) {
-      return 'App warm';
-    } else if (temperature <= 0) {
+    if (temperature <= 0) {
       return 'App freezing';
+    } else if (temperature > 0 && temperature < 18 ) {
+      return 'App moderate'
+    } else if (temperature >= 18 && temperature < 25) {
+      return 'App warm';
     } else {
-      return 'App moderate';
+      return 'App hot';
     }
   }
 
