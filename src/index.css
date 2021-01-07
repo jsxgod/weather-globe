@@ -10,7 +10,10 @@ body {
 }
 
 .App {
-  background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+  background: #2c3e50;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #3498db, #2c3e50);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #3498db, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   background-size: cover;
   background-position: bottom;
   transition: 0.4s ease-out;
@@ -73,6 +76,19 @@ main {
 
 .search-box .search-bar:focus {
   background-color: rgba(255, 255, 255, 0.75);
+}
+
+.title-box .title {
+  color: #FFF;
+  font-size: 36px;
+  font-weight: 500;
+  text-align: center;
+  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+}
+
+.title-box .icon {
+  margin-top: 10px;
+  text-align: center;
 }
 
 .location-box .location {

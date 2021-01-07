@@ -18,12 +18,17 @@ function App() {
 
   const search = evt => {
     if (evt.key === "Enter"){
+      if(query){
       fetch(`${api.baseUrl}weather?q=${query}&units=metric&APPID=${api.key}`)
       .then(res => res.json())
       .then(result => {
           setWeather(result);
           setQuery('');
         });
+      } else {
+        setWeather({});
+        setQuery('');
+      }
     }
   };
 
@@ -125,7 +130,24 @@ function App() {
                 </div>
               </div>
             </div>
-          </div>) : ('')
+          </div>) 
+          : (
+          <div className="title-box">
+            <div className="title">
+              Weather App
+            </div>
+            <div className="icon">
+            <Skycons
+            color="white"
+            type={SkyconsType.PARTLY_CLOUDY_DAY}
+            animate={true}
+            size={50}
+            resizeClear={true}
+            {...svgProps}
+            />
+            </div>
+          </div>
+          )
         }
       </main>
     </div>
