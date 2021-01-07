@@ -20,11 +20,20 @@ function App() {
     if (evt.key === "Enter"){
       if(query){
       fetch(`${api.baseUrl}weather?q=${query}&units=metric&APPID=${api.key}`)
+      .then(response =>{
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response;
+      })
       .then(res => res.json())
       .then(result => {
           setWeather(result);
           setQuery('');
-        });
+        })
+      .catch(() => {
+        window.alert("Location not found. Check for spelling errors.");
+      })
       } else {
         setWeather({});
         setQuery('');
