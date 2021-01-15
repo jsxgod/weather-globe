@@ -3,6 +3,7 @@ import React from 'react';
 import {useState} from 'react';
 import { SkyconsType } from 'react-skycons';
 import { Search, Title, Weather } from './components';
+import ReactGlobe from 'react-globe';
 
 const api = {
   key: 'b8b7f5d0fa269aa3f668fdacf2588b7c',
@@ -43,15 +44,15 @@ const App = () => {
 
   const determineWeatherCSS = (temperature) => {
     if (temperature <= 0) {
-      return 'App freezing';
+      return 'freezing';
     } else if (temperature > 0 && temperature < 10){
-      return 'App cold';
+      return 'cold';
     } else if (temperature >= 10 && temperature < 20 ) {
-      return 'App moderate';
+      return 'moderate';
     } else if (temperature >= 20 && temperature < 25) {
-      return 'App warm';
+      return 'warm';
     } else {
-      return 'App hot';
+      return 'hot';
     }
   }
 
@@ -94,7 +95,7 @@ const App = () => {
   };
 
   return (
-    <>
+    <div className="container">
     <div className={
       (typeof weather.main != "undefined") 
       ? (determineWeatherCSS(weather.main.temp)) 
@@ -106,7 +107,7 @@ const App = () => {
             date={getDate()} 
             temp={Math.round(weather.main.temp)}
             weatherIcon = {determineWeatherIcon(weather.weather[0])}
-
+            background={determineWeatherCSS(weather.main.temp)}
           />
         ) 
           : (
@@ -114,7 +115,15 @@ const App = () => {
           )
         }
     </div>
-    </>
+    <ReactGlobe 
+      options={{
+        globeCloudsOpacity: 0.8,
+        enableGlobeGlow: false,
+      }}
+      globeBackgroundTexture={null} 
+      height="600px" 
+      width="700px"/>
+    </div>
   );
 }
 
