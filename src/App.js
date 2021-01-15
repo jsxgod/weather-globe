@@ -97,7 +97,6 @@ const App = () => {
       (typeof weather.main != "undefined") 
       ? (determineWeatherCSS(weather.main.temp)) 
       : 'App'}>
-      <main>
         <Search query={query} onChange={setQuery} handleSearch={handleSearch}/>
         {(typeof weather.main != "undefined") ? (
           <div>
@@ -149,7 +148,6 @@ const App = () => {
           </div>
           )
         }
-      </main>
     </div>
     </>
   );
