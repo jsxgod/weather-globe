@@ -1,25 +1,39 @@
 import React from 'react'
 import { WeatherDate, WeatherIcon, WeatherInfo, WeatherInfoContainer, WeatherLocation, WeatherTemperature, WeatherType, WeatherTypeDescription } from './Weather.elements'
+import Skycons from 'react-skycons'
+const Weather = (props) => {
 
-const Weather = () => {
+    const getDate = () => {
+        props.getDate();
+    }
+
     return (
         <>
             <WeatherInfoContainer>
                 <WeatherLocation>
+                    {props.weather.name}, {props.weather.sys.country}
                     <WeatherDate>
-
+                        {props.date}
                     </WeatherDate>
                 </WeatherLocation>
                 <WeatherInfo>
                     <WeatherTemperature>
-                        2 C
+                        {props.temp}°C
                     </WeatherTemperature>
                     <WeatherIcon>
-                        ikonka
+                        <Skycons
+                            color="white"
+                            type={props.weatherIcon}
+                            animate={true}
+                            size={50}
+                            resizeClear={true}
+                            {...props.svgProps}
+                        />
                     </WeatherIcon>
                     <WeatherType>
+                        {props.weather.weather[0].main}
                         <WeatherTypeDescription>
-                            description
+                        {props.weather.weather[0].main === 'Clouds' ? props.weather.weather[0].description : ''}
                         </WeatherTypeDescription>
                     </WeatherType>
                 </WeatherInfo>

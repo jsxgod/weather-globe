@@ -36,7 +36,7 @@ export const WeatherTemperature = styled.div`
     padding: 15px 25px;
 
     color: #FFF;
-    font-size: 92px;
+    font-size: 78px;
     font-weight: 900;
 
     text-shadow: 3px 6px rgba(50, 50, 70, 0.5);

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import {useState} from 'react';
-import Skycons, { SkyconsType } from 'react-skycons';
+import { SkyconsType } from 'react-skycons';
 import { Search, Title, Weather } from './components';
 
 const api = {
@@ -44,9 +44,11 @@ const App = () => {
   const determineWeatherCSS = (temperature) => {
     if (temperature <= 0) {
       return 'App freezing';
-    } else if (temperature > 0 && temperature < 18 ) {
-      return 'App moderate'
-    } else if (temperature >= 18 && temperature < 25) {
+    } else if (temperature > 0 && temperature < 10){
+      return 'App cold';
+    } else if (temperature >= 10 && temperature < 20 ) {
+      return 'App moderate';
+    } else if (temperature >= 20 && temperature < 25) {
       return 'App warm';
     } else {
       return 'App hot';
@@ -99,7 +101,13 @@ const App = () => {
       : 'App'}>
         <Search query={query} onChange={setQuery} handleSearch={handleSearch}/>
         {(typeof weather.main != "undefined") ? (
-          <Weather />
+          <Weather 
+            weather={weather} 
+            date={getDate()} 
+            temp={Math.round(weather.main.temp)}
+            weatherIcon = {determineWeatherIcon(weather.weather[0])}
+
+          />
         ) 
           : (
             <Title />
