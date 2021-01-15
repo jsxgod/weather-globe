@@ -2,7 +2,7 @@
 import React from 'react';
 import {useState} from 'react';
 import Skycons, { SkyconsType } from 'react-skycons';
-import { Search, Title } from './components';
+import { Search, Title, Weather } from './components';
 
 const api = {
   key: 'b8b7f5d0fa269aa3f668fdacf2588b7c',
@@ -99,7 +99,7 @@ const App = () => {
       : 'App'}>
         <Search query={query} onChange={setQuery} handleSearch={handleSearch}/>
         {(typeof weather.main != "undefined") ? (
-          <div />
+          <Weather />
         ) 
           : (
             <Title />
