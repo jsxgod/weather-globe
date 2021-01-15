@@ -18,8 +18,8 @@ export const TitleHeader = styled.h1`
 
 export const TitleIconWrapper = styled.h1`
     background-clip: text;
-    padding: 10px;
-    margin-top: 2rem;    
+    padding-top: 10px;
+    margin-top: 1rem;
     transition: 0.3s ease-in;
 
 `;

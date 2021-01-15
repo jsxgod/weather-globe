@@ -7,6 +7,8 @@ const Weather = (props) => {
         props.getDate();
     }
 
+    console.log(props.background)
+
     return (
         <>
             <WeatherInfoContainer>
@@ -17,7 +19,7 @@ const Weather = (props) => {
                     </WeatherDate>
                 </WeatherLocation>
                 <WeatherInfo>
-                    <WeatherTemperature>
+                    <WeatherTemperature bg={props.background}>
                         {props.temp}°C
                     </WeatherTemperature>
                     <WeatherIcon>

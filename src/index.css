@@ -7,56 +7,35 @@
 body {
   background: rgb(0, 0, 0, 0.95);
   font-family: 'montseratt', sans-serif;
-  display: flex;
-  flex-wrap: wrap;
-  min-height: 100vh;
-  padding: 25px;
-}
-
-.globe {
-  background: red;
+  
+  padding-top: 25px;
 }
 
 .App {
-  min-height: 760px;
-  padding: 25px;
-  background: #2c3e50;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #3498db, #2c3e50);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #3498db, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding-top: 25px;
 
   border-radius: 2rem;
-  width: 100%;
-
-  background-size: cover;
-  background-position: bottom;
   transition: 0.4s ease-out;
 }
 
-.App.freezing {
-  background: rgb(2,0,36);
-  background: linear-gradient(to top, rgba(2,0,36,1) 0%, rgb(14, 192, 192) 35%, rgb(176, 200, 201) 100%);
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
 }
 
-.App.cold {
-  background: #005AA7;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #FFFDE4, #005AA7);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom left, #FFFDE4, #517aa3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+.globeContainer {
+  max-width: 960px;
+  max-height: 700px;
+  word-wrap: break-word;
 }
 
-.App.moderate {
-  background: #005AA7;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #FFFDE4, #005AA7);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom left, #FFFDE4, #005AA7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-.App.warm {
-  background: #FDC830;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #F37335, #FDC830);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, #fdfb8e, #fdbc30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-.App.hot {
-  background: #FDC830;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #F37335, #FDC830);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top, #F37335, #FDC830); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+@media only screen and (max-width: 960px){
+  .container {
+    flex-direction: column;
+    padding: 5px;
+  }
 }

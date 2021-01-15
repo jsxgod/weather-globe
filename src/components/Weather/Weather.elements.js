@@ -23,14 +23,14 @@ export const WeatherDate = styled.div`
 
 export const WeatherInfo = styled.div`
     text-align: center;
-    margin-bottom: 200px;
 `;
 
 export const WeatherTemperature = styled.div`
     position: relative;
     display: inline-block;
     margin: 30px auto;
-    background-color: rgba(255, 255, 255, 0.2);
+    //background-color: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(${({bg})=>(bg === 'freezing' ? freezingBg : bg === 'cold' ? coldBg : bg === 'moderate' ? moderateBg : bg === 'warm' ? warmBg : bg === 'hot' ? hotBg : 'rgba(255, 255, 255, 0.2)')});
     border-radius: 16px;
 
     padding: 15px 25px;
@@ -61,3 +61,13 @@ export const WeatherTypeDescription = styled.div`
     font-weight: 400;
     text-shadow: 1px 2px rgba(50, 50, 70, 0.5);
 `;
+
+const freezingBg = 'to top, rgba(2,0,36,1) 0%, rgb(14, 192, 192) 35%, rgb(176, 200, 201) 100%';
+
+const coldBg = 'to bottom left, #FFFDE4, #517aa3';
+
+const moderateBg = 'to bottom left, #FFFDE4, #005AA7';
+
+const warmBg = 'to bottom, #fdfb8e, #fdbc30';
+
+const hotBg = 'to top, #F37335, #FDC830';

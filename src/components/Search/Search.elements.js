@@ -17,7 +17,7 @@ export const SearchBar = styled.input`
     border: none;
     outline: none;
 
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.7);
     border-radius: 16px;
     margin-top: -25px;
 
@@ -29,7 +29,7 @@ export const SearchBar = styled.input`
     transition: 0.4s ease;
 
     &:focus {
-        background-color: rgba(255, 255, 255, 0.75);
+        background-color: rgba(255, 255, 255, 0.9);
     }
 
 `;
