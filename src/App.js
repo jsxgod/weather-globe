@@ -2,22 +2,22 @@
 import React from 'react';
 import {useState} from 'react';
 import Skycons, { SkyconsType } from 'react-skycons';
+import { Search } from './components';
 
 const api = {
   key: 'b8b7f5d0fa269aa3f668fdacf2588b7c',
   baseUrl: "https://api.openweathermap.org/data/2.5/"
 }
 
-function App() {
-
+const App = () => {
   const svgProps = {
     style: { backgroundColor: '' },
   }
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
 
-  const search = evt => {
-    if (evt.key === "Enter"){
+  const handleSearch = (keyPressed) => {
+    if (keyPressed === "Enter"){
       if(query){
       fetch(`${api.baseUrl}weather?q=${query}&units=metric&APPID=${api.key}`)
       .then(response =>{
@@ -92,22 +92,13 @@ function App() {
   };
 
   return (
+    <>
     <div className={
       (typeof weather.main != "undefined") 
       ? (determineWeatherCSS(weather.main.temp)) 
       : 'App'}>
       <main>
-        <div className="search-box">
-          <input 
-            type="text" 
-            className="search-bar" 
-            placeholder="Search..." 
-            onChange={e => setQuery(e.target.value)}
-            value={query}
-            onKeyPress={search}
-          >
-          </input>
-        </div>
+        <Search query={query} onChange={setQuery} handleSearch={handleSearch}/>
         {(typeof weather.main != "undefined") ? (
           <div>
             <div className="location-box">
@@ -160,6 +151,7 @@ function App() {
         }
       </main>
     </div>
+    </>
   );
 }
 
