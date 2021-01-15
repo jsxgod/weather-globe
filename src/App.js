@@ -2,7 +2,7 @@
 import React from 'react';
 import {useState} from 'react';
 import Skycons, { SkyconsType } from 'react-skycons';
-import { Search } from './components';
+import { Search, Title } from './components';
 
 const api = {
   key: 'b8b7f5d0fa269aa3f668fdacf2588b7c',
@@ -99,53 +99,10 @@ const App = () => {
       : 'App'}>
         <Search query={query} onChange={setQuery} handleSearch={handleSearch}/>
         {(typeof weather.main != "undefined") ? (
-          <div>
-            <div className="location-box">
-              <div className="location">
-                {weather.name}, {weather.sys.country}
-                <div className="date">
-                  {getDate()}
-                </div>
-              </div>
-              <div className="weather-box">
-                <div className="temperature">
-                  {Math.round(weather.main.temp)}°C
-                </div>
-                <div className="icon">
-                  <Skycons
-                  color="white"
-                  type={determineWeatherIcon(weather.weather[0])}
-                  animate={true}
-                  size={50}
-                  resizeClear={true}
-                  {...svgProps}
-                />
-                 </div>
-                <div className="weather-type">
-                  {weather.weather[0].main}
-                  <div className="weather-description">
-                  {weather.weather[0].main === 'Clouds' ? weather.weather[0].description : ''}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>) 
+          <div />
+        ) 
           : (
-          <div className="title-box">
-            <div className="title">
-              Weather App
-            </div>
-            <div className="icon">
-            <Skycons
-            color="white"
-            type={SkyconsType.PARTLY_CLOUDY_DAY}
-            animate={true}
-            size={50}
-            resizeClear={true}
-            {...svgProps}
-            />
-            </div>
-          </div>
+            <Title />
           )
         }
     </div>
