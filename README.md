@@ -1,5 +1,16 @@
-# React Weather web application
-Data fetched from OpenWeatherMap API
+# Weather Globe 🌍
+Web Application built with React, Styled Components and react-globe.
+Check weather status all around the globe and see where that location is before your eyes.
 
-# https://weather-app.jsxgod.vercel.app/
-Please do not send too many API calls as this was only developed for educational purposes with the API's free version and call limit.
+Data fetched from OpenWeatherMap API [https://openweathermap.org/api]
+Thanks to chrisrzhou for the beautiful react-globe component [https://github.com/chrisrzhou/react-globe]
+
+## Install
+Clone this repo
+```sh
+npm install
+```
+```sh
+npm start
+```
+Starts the local server at localhost:3000
