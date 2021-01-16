@@ -2,8 +2,7 @@
 import React from 'react';
 import {useState} from 'react';
 import { SkyconsType } from 'react-skycons';
-import { Search, Title, Weather } from './components';
-import ReactGlobe from 'react-globe';
+import { Search, Title, Weather, Globe } from './components';
 
 const api = {
   key: 'b8b7f5d0fa269aa3f668fdacf2588b7c',
@@ -11,11 +10,10 @@ const api = {
 }
 
 const App = () => {
-  const svgProps = {
-    style: { backgroundColor: '' },
-  }
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
+  const [focus, setFocus] = useState(null);
+  const [markers, setMarkers] = useState([]);
 
   const handleSearch = (keyPressed) => {
     if (keyPressed === "Enter"){
@@ -30,6 +28,20 @@ const App = () => {
       .then(res => res.json())
       .then(result => {
           setWeather(result);
+          setFocus([result.coord.lat, result.coord.lon]);
+          setMarkers([...markers, {
+            "id": result.name,
+            "city": result.name,
+            "country": result.sys.country,
+            "temp": result.main.temp+'°C',
+            "weather": result.weather[0].main,
+            "color": "red",
+            "coordinates": [
+              result.coord.lat,
+              result.coord.lon
+            ],
+            "value": result.main.temp
+          }]);
           setQuery('');
         })
       .catch(() => {
@@ -96,33 +108,23 @@ const App = () => {
 
   return (
     <div className="container">
-    <div className={
-      (typeof weather.main != "undefined") 
-      ? (determineWeatherCSS(weather.main.temp)) 
-      : 'App'}>
-        <Search query={query} onChange={setQuery} handleSearch={handleSearch}/>
-        {(typeof weather.main != "undefined") ? (
-          <Weather 
-            weather={weather} 
-            date={getDate()} 
-            temp={Math.round(weather.main.temp)}
-            weatherIcon = {determineWeatherIcon(weather.weather[0])}
-            background={determineWeatherCSS(weather.main.temp)}
-          />
-        ) 
-          : (
-            <Title />
-          )
-        }
+    <div className={'App'}>
+      <Search query={query} onChange={setQuery} handleSearch={handleSearch}/>
+      {(typeof weather.main != "undefined") ? (
+        <Weather 
+          weather={weather} 
+          date={getDate()} 
+          temp={Math.round(weather.main.temp)}
+          weatherIcon={determineWeatherIcon(weather.weather[0])}
+          background={determineWeatherCSS(weather.main.temp)}
+        />
+      ) 
+        : (
+          <Title />
+        )
+      }
     </div>
-    <ReactGlobe 
-      options={{
-        globeCloudsOpacity: 0.8,
-        enableGlobeGlow: false,
-      }}
-      globeBackgroundTexture={null} 
-      height="600px" 
-      width="700px"/>
+    <Globe focus={focus} markers={markers}/>
     </div>
   );
 }

@@ -2,13 +2,6 @@ import React from 'react'
 import { WeatherDate, WeatherIcon, WeatherInfo, WeatherInfoContainer, WeatherLocation, WeatherTemperature, WeatherType, WeatherTypeDescription } from './Weather.elements'
 import Skycons from 'react-skycons'
 const Weather = (props) => {
-
-    const getDate = () => {
-        props.getDate();
-    }
-
-    console.log(props.background)
-
     return (
         <>
             <WeatherInfoContainer>
