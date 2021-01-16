@@ -60,6 +60,8 @@ export const WeatherTypeDescription = styled.div`
     font-size: 20px;
     font-weight: 400;
     text-shadow: 1px 2px rgba(50, 50, 70, 0.5);
+    margin-bottom: 30px;
+
 `;
 
 const freezingBg = 'to top, rgba(2,0,36,1) 0%, rgb(14, 192, 192) 35%, rgb(176, 200, 201) 100%';

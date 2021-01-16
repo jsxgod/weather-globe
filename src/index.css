@@ -5,37 +5,33 @@
 }
 
 body {
-  background: rgb(0, 0, 0, 0.95);
+  background: #000000;
   font-family: 'montseratt', sans-serif;
   
   padding-top: 25px;
 }
 
-.App {
-  padding-top: 25px;
-
-  border-radius: 2rem;
-  transition: 0.4s ease-out;
-}
-
-
 .container {
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
-
+  padding-right: 5%;
 }
 
-.globeContainer {
-  max-width: 960px;
-  max-height: 700px;
-  word-wrap: break-word;
+.App {
+  padding-top: 25px;
+  margin-left: 25%;
+  margin-right: 2%;
 }
 
 @media only screen and (max-width: 960px){
   .container {
     flex-direction: column;
-    padding: 5px;
+    padding-right: 0;
+  }
+
+  .App {
+    margin-left: 0;
+    margin-right: 0;
   }
 }
