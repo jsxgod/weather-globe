@@ -1,5 +1,5 @@
 # Weather Globe 🌍
-Web Application built with React, Styled Components and react-globe.
+Web Application built with React, Styled Components and react-globe.<br/>
 Check weather status all around the globe and see where that location is before your eyes.
 <br/>
 https://globe-weather.herokuapp.com/
